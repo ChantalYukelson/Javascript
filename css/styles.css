@@ -1,0 +1,322 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+   
+}
+
+.color{
+    background-color: white;
+    
+
+  }
+
+  .color2{
+    background-color: rgb(184, 184, 184);
+    border: none;
+  }
+
+
+.margin{
+    margin-left: 10%;
+  }
+
+.texto{
+    color: black;
+    font-size: 20px;
+  }
+
+  .tipografia{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 40px;
+    margin-top: 3%;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    margin-bottom: 2%;
+  }
+
+
+img {
+    width: 332px;
+    margin-bottom: 10px;
+    height: 200px;
+}
+
+#boton-carrito {
+    border: none;
+    color: white;
+    font-size: 20px;
+    background-color: rgb(117, 117, 117);
+    border-radius: 10px 10px 10px 10px;
+    padding: 8px;
+    transition: all .3s;
+}
+#boton-carrito:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgba(138, 138, 138, 0.275);
+}
+#boton-carrito:focus {
+    outline: none;
+}
+
+#contenedor-servicios {
+    max-width: 1200px;
+    margin: 60px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 0px;
+}
+
+p {
+    line-height: 1.8;
+}
+.servicio {
+    max-width: 30%;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 16px 2px rgb(0 0 0 / 13%);
+    background-color: white;
+    border-radius: 10px 10px 10px 10px;
+}
+.precioServicio {
+    font-weight: 700;
+}
+.boton-agregar {
+    background-color: rgb(73, 73, 73);
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 8px;
+    border: none;
+    border-radius: 5px 5px 5px 5px;
+}
+.boton-agregar:hover {
+    cursor: pointer;
+    background-color: rgb(148, 148, 148);
+}
+.boton-agregar:focus {
+    outline: none;
+}
+
+.modal-contenedor {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-carrito {
+    position: relative;
+    background-color: white;
+    min-width: 500px;
+    padding: 20px;
+    margin-top: -100%;
+    transition: all .5s;
+}
+
+.modal-active .modal-carrito {
+    margin-top: 0;
+}
+
+.modal-carrito h3 {
+    color: rgb(165, 165, 165);
+    padding-bottom: 20px;
+    font-size: 25px;
+}
+.modal-carrito #carritoCerrar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 25px;
+    color: rgb(114, 114, 114);
+    border: none;
+    background-color: white;
+}
+.modal-carrito #carritoCerrar:hover {
+    cursor: pointer;
+}
+.modal-carrito #carritoCerrar:focus {
+    outline: none;
+}
+.modal-carrito .precioProducto {
+    padding-top: 10px;
+    
+}
+
+.servicioEnCarrito {
+    border-left: 5px solid rgb(141, 141, 141);
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    margin: 5px 0;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.productoEnCarrito:hover {
+    border-left: 5px solid rgb(146, 146, 146);
+}
+
+.boton-eliminar {
+    background-color: white;
+    color: red;
+    border: none;
+    font-size: 20px;
+}
+
+.boton-eliminar:hover {
+    cursor: pointer;
+}
+.boton-eliminar:focus {
+    outline: none;
+}
+
+.boton{
+    background-color: rgba(140, 140, 140, 0.868);
+    border: none;
+    color: rgb(228, 223, 212);
+    }
+
+
+    .cardpropia2{
+        background-color: white;
+        border-radius: 20px 20px 20px 20px;
+        border: none;
+        justify-content: center;
+        padding: 5%;
+        width: 110%;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.50);
+    }
+
+
+
+       .boton2{
+       border: none;
+        color: black;
+        padding-right: 8%;
+        padding-left: 8%;
+        padding-block: 2%;
+        border-radius: 10px;
+        background-color: rgba(109, 109, 109, 0.937);
+        margin-left: 27%;
+        margin-top: 53%;
+        box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.50);
+        font-weight: bold;
+    }
+
+
+    .texto-encima{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    .centrado{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    h1{
+       color: white;
+       font-size: 60px;
+       text-align: center;
+    }
+
+    .h3{
+        color: white;
+        text-align: center;
+     }
+
+
+     .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+      
+      
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 40%; /* Could be more or less, depending on screen size */
+        
+      }
+      
+     
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+
+      .tipografia2{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 30px;
+        margin-top: 3%;
+        font-weight: bold;
+        color: rgb(80, 80, 80);
+        margin-bottom: 2%;
+        text-align: center;
+      }
+
+      footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 200px;
+        background-color: grey;
+        margin-top: 0px;
+        margin-bottom: 0px;
+      
+      }
+      
+      footer nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      footer ul li {
+        list-style-type: none;
+        margin: 0 20px;
+      }
+      footer ul li a {
+        color: black;
+        text-decoration: none;
+      }
