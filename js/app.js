@@ -75,7 +75,14 @@ Servicios.forEach((servicio) => {
         
         })
 
+        aceptar.addEventListener('click', () => {
 
+            swal({
+                    title: "Su consulta fue enviada",
+                    icon: "success",
+                    button: "Ok",
+                  })
+                })
       
 
 

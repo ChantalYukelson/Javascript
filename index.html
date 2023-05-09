@@ -68,6 +68,37 @@
     </div>
 
 
+    <div class="contacto">
+
+      <h3 class="tipo2" data-aos="fade-up">Contactanos</h3>
+
+      <div class="d-flex" data-aos="fade-up">
+      <img class="imagen" src="./img/cartel .jpeg" alt="" data-aos="fade-up">
+
+      
+    <form id="form" class="formulario ms-5" data-aos="fade-up"
+  action=""
+  method="POST">
+  <div class="mb-3">
+  <input type="text" class="form-control" placeholder="Nombre" data-aos="fade-up" name="nombre" required>
+  <input type="text" class="form-control mt-2" placeholder="Apellido" data-aos="fade-up" name="apellido" required>
+  <input type="email" name="email" class="form-control mt-2" placeholder="Mail" data-aos="fade-up" required>
+  <textarea name="message" class="form-control mt-4" rows="3" placeholder="Mensaje" data-aos="fade-up" required></textarea>
+  
+  
+</form>
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+</div>
+</div>
+             
+              
+</form>
+<button id="aceptar"  class="btn boton mt-4" style="width: 20%;">Confirmar</button>
+                  
+        </div>
+
 
 
 
@@ -81,7 +112,35 @@
     <script defer src="js/modal.js"></script>
     <script defer src="js/app.js"></script>
 
+    <script>
+      const btn = document.getElementById('button');
     
+    document.getElementById('form')
+     .addEventListener('submit', function(event) {
+       event.preventDefault();
+    
+       btn.value = 'Enviando...';
+    
+       const serviceID = 'default_service';
+       const templateID = 'template_m1p0aul';
+    
+       emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+          btn.value = 'Enviar';
+          swal({
+            title: "Mensaje enviado con exito",
+            icon: "success",
+            button: "Ok",
+          })
+        }, (err) => {
+          btn.value = 'Enviar';
+          swal({
+            title: "Error al enviar mensaje",
+            button: "Ok",
+          })
+        });
+    });
+    </script>
 
 
 </body>
