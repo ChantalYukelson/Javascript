@@ -46,6 +46,7 @@ Servicios.forEach((servicio) => {
     const boton = document.getElementById(`agregar${servicio.id}`)
    
 
+    
     boton.addEventListener('click', () => {
        
         agregarAlCarrito(servicio.id)
@@ -156,9 +157,3 @@ AOS.init({
     delay: 0, 
     duration: 1000 
   });
-
-
-
-
- 
- 
