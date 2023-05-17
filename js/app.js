@@ -138,6 +138,7 @@ const actualizarCarrito = () => {
         div.innerHTML = `
         <p>${serv.nombre}</p>
         <p>Precio: $${serv.precio}</p>
+        <p>Cantidad: ${serv.cantidad}</p>
         <button onclick="eliminarDelCarrito(${serv.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
         `
 
