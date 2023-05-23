@@ -67,17 +67,29 @@
             <button id="finalizar-compra" class="boton-finalizar">Finalizar compra</button>
             <script>
               const finalizarCompraButton = document.getElementById("finalizar-compra");
-              
+              const carritoContenedor = document.getElementById("carrito-contenedor");
+              const mensajeCarritoVacio = "Su carrito de compras está vacío";
+        
               finalizarCompraButton.addEventListener("click", function() {
-                swal({
-                  title: "Gracias por realizar su compra en Estuardo",
-                  icon: "success",
-                  button: "Ok",
-                });
-                carrito.length = 0
-                actualizarCarrito()
+                if (carrito.length > 0) {
+                  swal({
+                    title: "Gracias por realizar su compra en Estuardo",
+                    icon: "success",
+                    button: "Ok",
+                  }).then(function() {
+                    carrito.length = 0;
+                    actualizarCarrito();
+                  });
+                } else {
+                  swal({
+                    title: "Alerta",
+                    text: mensajeCarritoVacio,
+                    icon: "warning",
+                    button: "Ok",
+                  });
+                }
               });
-              </script>
+            </script>
               
 
         </div>
@@ -92,26 +104,55 @@
       <img class="imagen" src="./img/cartel .jpeg" alt="" data-aos="fade-up">
 
       
-    <form id="form" class="formulario ms-5" data-aos="fade-up"
-  action=""
-  method="POST">
+   <form id="form" class="formulario ms-5" data-aos="fade-up" action="" method="POST">
   <div class="mb-3">
-  <input type="text" class="form-control" placeholder="Nombre" data-aos="fade-up" name="nombre" required>
-  <input type="text" class="form-control mt-2" placeholder="Apellido" data-aos="fade-up" name="apellido" required>
-  <input type="email" name="email" class="form-control mt-2" placeholder="Mail" data-aos="fade-up" required>
-  <textarea name="message" class="form-control mt-4" rows="3" placeholder="Mensaje" data-aos="fade-up" required></textarea>
-  
-  
+    <input type="text" class="form-control" placeholder="Nombre" data-aos="fade-up" name="nombre" required>
+    <input type="text" class="form-control mt-2" placeholder="Apellido" data-aos="fade-up" name="apellido" required>
+    <input type="email" name="email" class="form-control mt-2" placeholder="Mail" data-aos="fade-up" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+    <textarea name="message" class="form-control mt-4" rows="3" placeholder="Mensaje" data-aos="fade-up" required></textarea>
+  </div>
+  <button id="aceptar" type="submit" class="btn boton mt-4" style="width: 20%;">Enviar</button>
 </form>
 <script type="text/javascript"
   src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    document.getElementById('form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evitar que el formulario se envíe automáticamente
+  
+      // Verificar si todos los campos están completos
+      const nombre = document.getElementsByName('nombre')[0].value;
+      const apellido = document.getElementsByName('apellido')[0].value;
+      const email = document.getElementsByName('email')[0].value;
+      const message = document.getElementsByName('message')[0].value;
+  
+      if (nombre && apellido && email && message) {
+        swal("¿Desea enviar el formulario?", {
+          buttons: {
+            cancel: "Cancelar",
+            catch: {
+              text: "Aceptar",
+              value: "catch",
+            },
+          },
+        }).then((value) => {
+          switch (value) {
+            case "catch":
+              swal({
+                title: "Su consulta fue enviada",
+                icon: "success",
+                button: "Ok",
+              });
+              break;
+          }
+        });
+      } else {
+        swal("Faltan campos", "Por favor complete todos los campos del formulario", "error");
+      }
+    });
+  </script>
 
 </div>
 </div>
-             
-              
-</form>
-<button id="aceptar"  class="btn boton mt-4" style="width: 20%;">Confirmar</button>
                   
         </div>
 
@@ -126,47 +167,6 @@
     <script defer src="js/app.js"></script>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script>
-    const btn = document.getElementById('button');
-
-    document.getElementById('form')
-      .addEventListener('submit', async function(event) {
-        event.preventDefault();
-
-        btn.value = 'Enviando...';
-
-        const serviceID = 'default_service';
-        const templateID = 'template_m1p0aul';
-
-        try {
-          const response = await fetch('/api/send-email', {
-            method: 'POST',
-            body: new FormData(this),
-          });
-
-          if (response.status === 200) {
-            btn.value = 'Enviar';
-            swal({
-              title: "Mensaje enviado con éxito",
-              icon: "success",
-              button: "Aceptar",
-            });
-          } else {
-            throw new Error(`Error al enviar el mensaje: ${response.status}`);
-          }
-        } catch (error) {
-          btn.value = 'Enviar';
-          swal({
-            title: "Error al enviar el mensaje",
-            text: error.message,
-            icon: "error",
-            button: "Aceptar",
-          });
-        } finally {
-          btn.disabled = false;
-        }
-      });
-  </script>
 
 </body>
 <footer>
